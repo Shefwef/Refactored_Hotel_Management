@@ -15,7 +15,6 @@ class LuxurySingleRoom implements Room, FoodOrder {
         System.out.println("   - Spacious room with a comfortable single bed");
         System.out.println("   - Air conditioning and heating available");
         System.out.println("   - Free breakfast and complimentary snacks");
-        // Add more features as needed
     }
 
     @Override
