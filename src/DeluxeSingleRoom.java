@@ -1,0 +1,70 @@
+class DeluxeSingleRoom implements Room, FoodOrder {
+    private int roomNumber;
+    private boolean isBooked;
+    private boolean isFoodOrdered;
+
+    DeluxeSingleRoom() {
+        this.roomNumber = 1;
+        this.isBooked = false;
+        this.isFoodOrdered = false;
+    }
+
+    @Override
+    public void displayFeatures() {
+        System.out.println("Deluxe Single Room Features:");
+        System.out.println("   - Comfortable room with single bed");
+        System.out.println("   - Air conditioning available");
+        System.out.println("   - Free breakfast included");
+    }
+
+    @Override
+    public void displayAvailability() {
+        System.out.println("Deluxe Single Room Availability:");
+        if (isBooked) {
+            System.out.println("   - Not Available");
+        } else {
+            System.out.println("   - Available for booking");
+        }
+    }
+
+    @Override
+    public void bookRoom() {
+        if (!isBooked) {
+            System.out.println("Booking Deluxe Single Room #" + roomNumber);
+            isBooked = true;
+        } else {
+            System.out.println("Deluxe Single Room #" + roomNumber + " is already booked.");
+        }
+    }
+
+    @Override
+    public void orderFood(int roomNumber) {
+        if (isBooked && !isFoodOrdered) {
+            System.out.println("Ordering food for Deluxe Single Room #" + roomNumber);
+            isFoodOrdered = true;
+        } else {
+            System.out.println("Food already ordered or room not booked.");
+        }
+    }
+
+    @Override
+    public void checkout(int roomNumber) {
+        if (isBooked) {
+            System.out.println("Checking out from Deluxe Single Room #" + roomNumber);
+            isBooked = false;
+            isFoodOrdered = false;
+        } else {
+            System.out.println("No booking found for Deluxe Single Room #" + roomNumber);
+        }
+    }
+
+    @Override
+    public void placeOrder(int roomNumber) {
+        if (isBooked && !isFoodOrdered) {
+            System.out.println("Placing food order for Deluxe Single Room #" + roomNumber);
+            isFoodOrdered = true;
+        } else {
+            System.out.println("Food already ordered or room not booked.");
+        }
+    }
+}
